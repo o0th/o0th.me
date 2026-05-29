@@ -1,0 +1,142 @@
+:root {
+  --color-green: #33ff66;
+  --color-green-dim: #1f9a3d;
+  --color-green-faint: #0e4d1e;
+  --color-green-hi: #c8ffd6;
+  --color-green-link: #9bff8a;
+
+  --color-amber: #ffb000;
+  --color-amber-dim: #b07800;
+  --color-amber-faint: #5a3d00;
+  --color-amber-hi: #fff2c4;
+  --color-amber-link: #ffd070;
+
+  --color-white: #e8e8e8;
+  --color-white-dim: #b8b8b8;
+  --color-white-faint: #3a3a3a;
+  --color-white-hi: #ffffff;
+  --color-white-link: #cfd6ff;
+
+  --color-ice: #6cc4ff;
+  --color-ice-dim: #3b7fab;
+  --color-ice-faint: #1d3f55;
+  --color-ice-hi: #d9f0ff;
+  --color-ice-link: #b3dcff;
+
+  --color-background: #111;
+  --color-background-gradient: #000;
+
+  --type: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --type-mono: 'VT323', 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+
+.theme-green {
+  --color-primary: var(--color-green);
+  --color-primary-dim: var(--color-green-dim);
+  --color-primary-faint: var(--color-green-faint);
+  --color-primary-hi: var(--color-green-hi);
+  --color-primary-link: var(--color-green-link);
+}
+
+.theme-amber {
+  --color-primary: var(--color-amber);
+  --color-primary-dim: var(--color-amber-dim);
+  --color-primary-faint: var(--color-amber-faint);
+  --color-primary-hi: var(--color-amber-hi);
+  --color-primary-link: var(--color-amber-link);
+}
+
+.theme-white {
+  --color-primary: var(--color-white);
+  --color-primary-dim: var(--color-white-dim);
+  --color-primary-faint: var(--color-white-faint);
+  --color-primary-hi: var(--color-white-hi);
+  --color-primary-link: var(--color-white-link);
+}
+
+.theme-ice {
+  --color-primary: var(--color-ice);
+  --color-primary-dim: var(--color-ice-dim);
+  --color-primary-faint: var(--color-ice-faint);
+  --color-primary-hi: var(--color-ice-hi);
+  --color-primary-link: var(--color-ice-link);
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.color-primary::selection {
+  background: var(--color-primary);
+  color: var(--color-background);
+}
+
+.color-primary-dim {
+  color: var(--color-primary-dim);
+}
+
+.color-primary-faint {
+  color: var(--color-primary-faint);
+}
+
+.color-primary-hi {
+  color: var(--color-primary-hi);
+}
+
+.color-primary-link {
+  color: var(--color-primary-link);
+}
+
+html, body {
+  background-color: var(--color-background);
+
+  font-family: var(--type);
+  color: var(--color-primary);
+}
+
+/* Scanlines */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 1px,
+      rgb(from var(--color-background) r g b / 0.2) 1px,
+      rgb(from var(--color-background) r g b / 0.2) 2px
+    );
+  mix-blend-mode: multiply;
+}
+
+/* Phosphor glow */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 80%,
+      rgb(from var(--color-background-gradient) r g b / 0.2) 100%
+    );
+}
+
+p {
+  color: var(--color-primary);
+  text-shadow:
+    0 0 1px var(--color-primary),
+    0 0 4px rgb(from var(--color-primary) r g b / 0.5),
+    0 0 14px rgb(from var(--color-primary) r g b / 0.2);
+}
+
+p::selection
+{
+  background: var(--color-primary);
+  color: var(--color-background);
+}
