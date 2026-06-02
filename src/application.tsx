@@ -1,21 +1,18 @@
-import { useState, useCallback } from 'react'
-import { Prompt } from './components/prompt'
+import { Root } from './pages/root.tsx'
+import { Snippets, Snippet } from './pages/snippets.tsx'
+
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom"
 import './application.css'
 
 export function Application() {
-  const [count, setCount] = useState(1)
-  const [resetKey, setResetKey] = useState(0)
-
-  const onClear = useCallback(() => {
-    setResetKey(k => k + 1)
-    setCount(1)
-  }, [])
-
   return (
-    <>
-      {Array.from({ length: count }, (_, i) => (
-        <Prompt key={`${resetKey}-${i}`} onClear={onClear} onDone={i === count - 1 ? () => setCount(c => c + 1) : undefined} />
-      ))}
-    </>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Root />} />
+        <Route path="/snippets" element={<Snippets />} />
+        <Route path="/snippets/:slug" element={<Snippet />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </HashRouter>
   )
 }

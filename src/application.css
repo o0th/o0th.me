@@ -87,11 +87,18 @@
   color: var(--color-primary-link);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html, body {
   background-color: var(--color-background);
 
   font-family: var(--type);
   color: var(--color-primary);
+
+  height: 100%;
 }
 
 /* Scanlines */
@@ -127,16 +134,45 @@ body::after {
     );
 }
 
-p {
+p, span {
   color: var(--color-primary);
   text-shadow:
     0 0 1px var(--color-primary),
     0 0 4px rgb(from var(--color-primary) r g b / 0.5),
     0 0 14px rgb(from var(--color-primary) r g b / 0.2);
+
+  padding: 1rem 0 1rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary-link);
+  text-shadow:
+    0 0 1px var(--color-primary-link),
+    0 0 4px rgb(from var(--color-primary-link) r g b / 0.5),
+    0 0 14px rgb(from var(--color-primary-link) r g b / 0.2);
+}
+
+a:hover {
+  color: var(--color-background);
+  background: var(--color-primary-link);
 }
 
 p::selection
 {
   background: var(--color-primary);
   color: var(--color-background);
+}
+
+pre {
+  padding: 1rem;
+  background: rgb(from var(--color-primary) r g b / 0.05);
+  border: 1px solid rgb(from var(--color-primary) r g b / 0.2);
+  border-radius: 4px;
+  width: 100%;
+}
+
+.root, .snippets, .content {
+  max-width: 720px;
+  margin: 0 auto;
 }
