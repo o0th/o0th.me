@@ -8,11 +8,10 @@ export function Markdown({ children }: { children: string }) {
     <ReactMarkdown
       rehypePlugins={[[rehypeExternalLinks, { target: '_blank' }]]}
       components={{
-        code({ children, className, ...rest }) {
+        code({ children, className }) {
           const match = /language-(\w+)/.exec(className || '')
           return match ? (
             <SyntaxHighlighter
-              {...rest}
               PreTag="div"
               language={match[1]}
               style={vscDarkPlus}
@@ -26,7 +25,7 @@ export function Markdown({ children }: { children: string }) {
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
           ) : (
-            <code {...rest} className={className}>
+            <code className={className}>
               {children}
             </code>
           )
