@@ -141,7 +141,7 @@ p, span {
     0 0 4px rgb(from var(--color-primary) r g b / 0.5),
     0 0 14px rgb(from var(--color-primary) r g b / 0.2);
 
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 0 0 0;
 }
 
 a {
@@ -166,13 +166,28 @@ p::selection
 
 pre {
   padding: 1rem;
+  margin: 1rem 0 0 0;
   background: rgb(from var(--color-primary) r g b / 0.05);
   border: 1px solid rgb(from var(--color-primary) r g b / 0.2);
   border-radius: 4px;
   width: 100%;
 }
 
-.root, .snippets, .content {
+code {
+  font-family: var(--type-mono);
+  color: var(--color-primary-hi);
+}
+
+.root, .snippets, .devlogs {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.dir {
+  padding: 1rem 0 1rem 0;
+}
+
+.content {
   max-width: 720px;
   margin: 0 auto;
 }

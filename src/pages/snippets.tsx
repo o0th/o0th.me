@@ -9,12 +9,14 @@ export function Snippets() {
   return (
     <div className="snippets">
       <Breadcrumbs breadcrumbs={['snippets']} />
-      {slugs.map(slug => (
-        <div key={slug}>
-          <span>-rw-r--r-- </span>
-          <Link key={slug} to={`/snippets/${slug}`}>{slug}</Link>
-        </div>
-      ))}
+      <div className="dir">
+        {slugs.map(slug => (
+          <div key={slug}>
+            <span>-rw-r--r-- </span>
+            <Link key={slug} to={`/snippets/${slug}`}>{slug}</Link>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

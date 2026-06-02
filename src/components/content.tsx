@@ -11,7 +11,9 @@ export function Content({ title, subtitle, content }: Properties) {
   return (
     <div className="content">
       <Breadcrumbs breadcrumbs={[title, subtitle]} />
-      <Markdown>{content}</Markdown>
+      <div className="content">
+        <Markdown>{content}</Markdown>
+      </div>
     </div>
   )
 }
