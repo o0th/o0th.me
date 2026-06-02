@@ -1,9 +1,3 @@
-Repository: [github.com/o0th/o0th.me](https://github.com/o0th/o0th.me)
-
-**2026/06/02 12:34**
-Create a custom component `markdown.tsx` to use `rehype-external-links` and `react-syntax-highlighter`
-
-```tsx
 import ReactMarkdown from 'react-markdown'
 import rehypeExternalLinks from 'rehype-external-links'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -23,7 +17,11 @@ export function Markdown({ children }: { children: string }) {
               language={match[1]}
               style={vscDarkPlus}
               showLineNumbers
-              customStyle={{ background: 'transparent', padding: 0, margin: 0 }}
+              customStyle={{
+                background: 'transparent',
+                padding: 0,
+                margin: 0
+              }}
             >
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
@@ -39,4 +37,3 @@ export function Markdown({ children }: { children: string }) {
     </ReactMarkdown>
   )
 }
-```

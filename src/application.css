@@ -144,6 +144,12 @@ p, span {
   padding: 1rem 0 0 0;
 }
 
+br {
+  content: "";
+  display: block;
+  margin: 0.2rem;
+}
+
 a {
   text-decoration: none;
   color: var(--color-primary-link);
@@ -165,17 +171,20 @@ p::selection
 }
 
 pre {
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0.5rem;
   margin: 1rem 0 0 0;
   background: rgb(from var(--color-primary) r g b / 0.05);
   border: 1px solid rgb(from var(--color-primary) r g b / 0.2);
   border-radius: 4px;
-  width: 100%;
 }
 
 code {
   font-family: var(--type-mono);
   color: var(--color-primary-hi);
+}
+
+pre code span {
+  padding: 0;
 }
 
 .root, .snippets, .devlogs {

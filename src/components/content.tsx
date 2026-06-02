@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "../components/breadcrumbs.tsx"
-import Markdown from 'react-markdown'
+import { Markdown } from "../components/markdown.tsx"
 
 interface Properties {
   title: string;
